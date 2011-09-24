@@ -1,6 +1,6 @@
-Autofunc is a C# application that demonstrates how to compose sequences of screens in a memory-efficient and dependency-injection-friendly fashion that's compatible with the notion of a single composition root.
+Autofunc is a C# windows forms application that demonstrates how to compose sequences of screens  in a memory-efficient and dependency-injection-friendly fashion that's compatible with a single composition root.
 
-Consider a simple case in which a dialog spawns two sub-forms, and all three depend on external systems (we'll say a database for now) :
+Consider a simple case in which a main dialog creates two sub-dialogs and all three forms depend on external systems, like a database (represented below by the ISession instance):
 
 * Main form: List Employees
 - Child form 1: Edit employee history
