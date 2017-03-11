@@ -4,8 +4,8 @@ Autofunc is an experiment, a C# windows forms application that explores how to c
 Consider a simple case in which a main dialog creates two sub-dialogs and all three forms depend on external systems, like a database (represented below by the ISession instance):
 
 * Main form: List Employees
-** Child form 1: Edit employee history
-** Child form 2: Edit employee goals
+* Child form 1: Edit employee history
+* Child form 2: Edit employee goals
 
 If we want to use constructor injection to supply the dependencies for all three of these forms, we have the following options:
 
@@ -19,8 +19,12 @@ If we want to use constructor injection to supply the dependencies for all three
 
 3) Inject self-sufficient, specialized factories into the main form. If you're committed to keeping a single reference to your DI container (in your composition root), this can get awkward as your factories require additional factories to satisfy their target's dependencies.
 
-    public EmployeeListPresenter(ISession session, EditEmployeeHistoryPresenterFactory factory1, EditEmployeeGoalsPresenterFactory factory2)
+    public EmployeeListPresenter(ISession session,
+                                 EditEmployeeHistoryPresenterFactory historyPresenterFactory,
+                                 EditEmployeeGoalsPresenterFactory goalsPresenterFactory)
 
 4) Inject Funcs into your main form that can create fully realized subforms.
 
-    public EmployeeListPresenter(ISession session, Func<EditEmployeeHistoryPresenter> func1, Func<EditEmployeeGoalsPresenter> func2)
+    public EmployeeListPresenter(ISession session,
+                                 Func<EditEmployeeHistoryPresenter> createHistoryPresenter,
+                                 Func<EditEmployeeGoalsPresenter> createGoalsPresenter)
