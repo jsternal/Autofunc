@@ -21,10 +21,16 @@ jobs:
           git fetch origin qa:qa
           git reset --hard qa
 
+      - name: set output variables
+        id: variables
+        run: |
+          echo ::set-output name=title::"Merge qa into development, $(date +%s)"
+          echo ::set-output name=body::"This pull request was auto-generated on $(date +%s)"
+
       - name: create pull request
         uses: peter-evans/create-pull-request@v3
         with:
           branch: merge-qa-into-development
-          title: Merge qa into development
-          body: This pull request was auto-generated on $(date +%s)
+          title: ${{ steps.variables.title }}
+          body: ${{ steps.variables.body }}
           
