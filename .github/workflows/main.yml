@@ -1,0 +1,29 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Create a pull request to merge qa changes into development
+
+on:
+  push:
+    branches:
+    - qa
+
+jobs:
+  
+  createPullRequest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: development
+
+      - name: get latest qa
+        run: |
+          git fetch origin qa:qa
+
+      - name: create pull request
+        uses: peter-evants/create-pull-request@v3
+        with:
+          branch: merge-qa-into-development
+          title: Merge changes into development from qa
+          body: This pull request was auto-generated on date +%s
+          
