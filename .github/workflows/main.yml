@@ -26,5 +26,5 @@ jobs:
         with:
           branch: merge-qa-into-development
           title: Merge qa into development
-          body: This pull request was auto-generated on date +'%Y-%m-$d'
+          body: This pull request was auto-generated on $(date +%s)
           
