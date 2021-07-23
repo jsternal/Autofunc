@@ -21,7 +21,7 @@ jobs:
           git fetch origin qa:qa
 
       - name: create pull request
-        uses: peter-evants/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v3
         with:
           branch: merge-qa-into-development
           title: Merge changes into development from qa
