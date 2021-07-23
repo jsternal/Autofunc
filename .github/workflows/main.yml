@@ -19,6 +19,7 @@ jobs:
       - name: get latest qa
         run: |
           git fetch origin qa:qa
+          git reset --hard qa
 
       - name: create pull request
         uses: peter-evans/create-pull-request@v3
