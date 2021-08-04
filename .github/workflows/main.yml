@@ -13,7 +13,7 @@ jobs:
       - name: set variables
         id: variables
         run: |
-          echo ::set-output name-dateString::"$(date +%Y-%m-%d %T)"
+          echo ::set-output name=dateString::"$(date +%Y-%m-%d %T)"
 
       - uses: actions/checkout@v2
         with:
