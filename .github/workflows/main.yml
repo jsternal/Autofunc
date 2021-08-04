@@ -10,10 +10,6 @@ jobs:
   createPullRequest:
     runs-on: ubuntu-latest
     steps:
-      - name: set variables
-        id: variables
-        run: |
-          echo ::set-output name=dateString::"$(date +%Y-%m-%d %T)"
 
       - uses: actions/checkout@v2
         with:
@@ -29,5 +25,5 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           branch: merge-qa-into-development
-          title: "Merge qa into development, ${{ steps.variables.outputs.dateString }}"
-          body: "This pull request was auto-generated on ${{ steps.variables.outputs.dateString }}"
+          title: "Merge qa into development"
+          body: "This pull request was auto-generated when code was committed to the qa branch."
