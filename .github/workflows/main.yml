@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Create a pull request to merge qa changes into development
 
 on:
@@ -21,9 +19,15 @@ jobs:
           git fetch origin qa:qa
           git reset --hard qa
 
+      - name: set output variables
+        id: variables
+        run: |
+          echo ::set-output name=title::"Merge qa into development, $(date +%Y-%m-%d)"
+          echo ::set-output name=body::"This pull request was auto-generated on $(date +%Y-%m-%d)"
+
       - name: create pull request
         uses: peter-evans/create-pull-request@v3
         with:
           branch: merge-qa-into-development
-          title: "Merge qa into development, ${{date +%Y-%m-%d}}"
-          body: "This pull request was auto-generated on ${{date +%Y-%m-%d}}"
+          title: ${{ steps.variables.outputs.title }}
+          body: ${{ steps.variables.outputs.body }}
