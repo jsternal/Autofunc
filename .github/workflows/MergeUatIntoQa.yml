@@ -3,7 +3,7 @@ name: Create a pull request to merge uat changes into qa
 on:
   push:
     branches:
-    - qa
+    - uat
 
 jobs:
   
