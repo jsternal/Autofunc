@@ -25,5 +25,5 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           branch: merge-qa-into-development
-          title: "Merge qa into development, ${date +%Y-%m-%d}"
-          body: "This pull request was auto-generated on ${date +%Y-%m-%d}"
+          title: "Merge qa into development, ${{date +%Y-%m-%d}}"
+          body: "This pull request was auto-generated on ${{date +%Y-%m-%d}}"
