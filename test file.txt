@@ -1,1 +1,2 @@
 First change to test file.txt
+Second change to test file.txt
