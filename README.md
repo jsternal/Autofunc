@@ -1,4 +1,5 @@
-##Overview##
+Overview
+-------
 
 Autofunc is an experiment, a C# windows forms application that explores how to compose sequences of screens in a memory-efficient and dependency-injection-friendly fashion that's compatible with a single composition root.
 
